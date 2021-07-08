@@ -16,7 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users=User::orderBy('id','ASC')->paginate(5);
+        return view('admin.user.index')->with('users', $users);
     }
 
     /**
@@ -40,7 +41,8 @@ class UserController extends Controller
         $user=new User($request->all());
         $user->password=bcrypt($user->password);
         $user->save();
-        return 'Usuario registrado';
+        flash('Se ha registrado exitosamente el usuario con nombre '.$user->name.'.')->success();
+        return redirect()->route('user.create');
     }
 
     /**

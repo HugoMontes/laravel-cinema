@@ -1,6 +1,7 @@
 @extends('admin.layout.main') 
 @section('title', 'Administrar usuarios') 
 @section('content')
+@include('flash::message')
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Nuevo usuario</h6>
@@ -28,7 +29,7 @@
                 ['class'=>'form-control', 'placeholder'=>'Seleccione una opcion','required']) !!}
         </div>
         <div class="form-group">
-            <a href="{{ route('admin.home') }}" class="btn btn-secondary">
+            <a href="{{ route('user.index') }}" class="btn btn-secondary">
                 Cancelar
             </a>
             {!! Form::submit('Guardar',['class'=>'btn btn-primary']) !!} 
