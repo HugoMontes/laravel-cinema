@@ -1,6 +1,7 @@
 @extends('admin.layout.main')
 @section('title', 'Administrar Usuarios') 
 @section('content')
+@include('flash::message')
 <div style="margin-bottom: 12px;">
     <a href="{{ route('user.create') }}" class="btn btn-primary"> Nuevo usuario</a>
 </div>
@@ -37,6 +38,11 @@
                     onclick="eliminarRegistro(event, this.href)"
                     class="btn btn-danger btn-sm" title="Eliminar">
                     <span class="fas fa-trash"></span> 
+                </a>
+
+                <a href="{{ route('user.edit', $user->id) }}"
+                    class="btn btn-success btn-sm" title="Editar">
+                    <span class="fas fa-pencil-alt"></span>
                 </a>
             </td>
         </tr>
