@@ -10,4 +10,8 @@ class Genero extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['genero'];
     public $timestamps = true;
+
+    public function peliculas(){
+        return $this->hasMany('App\Pelicula');
+    }
 }

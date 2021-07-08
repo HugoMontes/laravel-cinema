@@ -10,4 +10,8 @@ class Director extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['nombre'];
     public $timestamps = true;
+
+    public function peliculas(){
+        return $this->belongsToMany('App\Pelicula', 'pelicula_director');
+    }
 }

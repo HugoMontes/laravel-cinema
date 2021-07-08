@@ -10,4 +10,8 @@ class Imagen extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['nombre', 'pelicula_id'];
     public $timestamps = true;
+
+    public function pelicula(){
+        return $this->belongsTo('App\Pelicula');
+    }
 }
