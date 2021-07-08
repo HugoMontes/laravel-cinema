@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Rutas Admin 
+Route::group(['prefix'=>'admin'],function(){
+    Route::get('/home','admin\HomeController@index')->name('admin.home');
+    Route::resource('/user', 'admin\UserController');
+});
+
+
