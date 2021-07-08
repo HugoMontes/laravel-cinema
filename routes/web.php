@@ -18,7 +18,9 @@ Route::get('/', function () {
 // Rutas Admin 
 Route::group(['prefix'=>'admin'],function(){
     Route::get('/home','admin\HomeController@index')->name('admin.home');
+    
     Route::resource('/user', 'admin\UserController');
+    Route::get('user/{id}/destroy','admin\UserController@destroy')->name('user.destroy');
 });
 
 

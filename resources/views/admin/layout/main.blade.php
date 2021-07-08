@@ -103,6 +103,7 @@
     <!-- Custom scripts for all pages-->
     {!! Html::script('admin/js/sb-admin-2.min.js') !!}
 
+    @yield('javascript')
 </body>
 
 </html>
