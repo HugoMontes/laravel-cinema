@@ -93,7 +93,7 @@ class GeneroController extends Controller
     {
         $genero=Genero::find($id);
         $genero->delete();
-        flash('Se ha eliminado exitosamente el genero'.$genero->genero.'.')->success(); 
+        flash('Se ha eliminado exitosamente el genero '.$genero->genero.'.')->success(); 
         return redirect()->route('genero.index');
     }
 }

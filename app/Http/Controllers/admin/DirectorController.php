@@ -5,9 +5,9 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\User;
+use App\Director;
 
-class UserController extends Controller
+class DirectorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users=User::orderBy('id','ASC')->paginate(10);
-        return view('admin.user.index')->with('users', $users);
+        $directores=Director::orderBy('id','ASC')->paginate(10);
+        return view('admin.director.index')->with('directores', $directores);
     }
 
     /**
@@ -27,7 +27,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.user.create');
+        return view('admin.director.create');
     }
 
     /**
@@ -38,11 +38,10 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user=new User($request->all());
-        $user->password=bcrypt($user->password);
-        $user->save();
-        flash('Se ha registrado exitosamente el usuario con nombre '.$user->name.'.')->success();
-        return redirect()->route('user.create');
+        $director=new Director($request->all());
+        $director->save();
+        flash('Se ha registrado exitosamente el director con nombre '.$director->nombre.'.')->success();
+        return redirect()->route('director.create');
     }
 
     /**
@@ -64,8 +63,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user=User::find($id);
-        return view('admin.user.edit')->with('user',$user);
+        $director=Director::find($id);
+        return view('admin.director.edit')->with('director',$director);
     }
 
     /**
@@ -77,13 +76,11 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user=User::find($id);
-        $user->name=$request->name;
-        $user->email=$request->email;
-        $user->type=$request->type;
-        $user->save();
-        flash('Se ha editado exitosamente el usuario '.$user->name. '.')->success();
-        return redirect()->route('user.index');
+        $director=Director::find($id);
+        $director->fill($request->all());
+        $director->save();
+        flash('Se ha editado exitosamente el director '.$director->nombre.'.')->success();
+        return redirect()->route('director.index');
     }
 
     /**
@@ -94,9 +91,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user=User::find($id);
-        $user->delete();
-        flash('Se ha eliminado exitosamente al usuario '.$user->name.'.')->success();
-        return redirect()->route('user.index');
+        $director=Director::find($id);
+        $director->delete();
+        flash('Se ha eliminado exitosamente el director '.$director->nombre.'.')->success(); 
+        return redirect()->route('director.index');
     }
 }

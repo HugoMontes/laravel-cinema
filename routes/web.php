@@ -24,6 +24,9 @@ Route::group(['prefix'=>'admin'],function(){
 
     Route::resource('/genero', 'admin\GeneroController'); 
     Route::get('genero/{id}/destroy', 'admin\GeneroController@destroy')->name('genero.destroy');
+
+    Route::resource('director', 'admin\DirectorController');
+    Route::get('director/{id}/destroy','admin\DirectorController@destroy')->name('director.destroy');
 });
 
 
