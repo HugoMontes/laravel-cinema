@@ -1,5 +1,5 @@
 @extends('admin.layout.main')
-@section('title', 'Administrar directores') 
+@section('title', 'Lista de directores') 
 @section('content')
 @include('flash::message')
 <div style="margin-bottom: 12px;">
@@ -7,7 +7,7 @@
 </div>
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Directores</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Directores registrados</h6>
     </div>
     <div class="card-body">
     <table class="table"> 

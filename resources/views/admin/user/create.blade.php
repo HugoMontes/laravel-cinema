@@ -1,10 +1,10 @@
 @extends('admin.layout.main') 
-@section('title', 'Administrar usuarios') 
+@section('title', 'Registrar usuario') 
 @section('content')
 @include('flash::message')
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Nuevo usuario</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Datos nuevo usuario</h6>
     </div>
     <div class="card-body">
     {!! Form::open(['route'=>'user.store', 'method'=>'POST']) !!}

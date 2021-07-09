@@ -1,10 +1,10 @@
 @extends('admin.layout.main') 
-@section('title', 'Administrar generos') 
+@section('title', 'Editar genero') 
 @section('content')
 @include('flash::message')
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Editar genero</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Datos a editar</h6>
     </div>
     <div class="card-body">
     {!! Form::open(['route'=>['genero.update', $genero], 'method'=>'PUT']) !!}

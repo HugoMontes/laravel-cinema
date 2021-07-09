@@ -1,10 +1,10 @@
 @extends('admin.layout.main') 
-@section('title', 'Administrar usuarios') 
+@section('title', 'Editar usuario') 
 @section('content')
 @include('flash::message')
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Editar usuario</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Datos editados</h6>
     </div>
     <div class="card-body">
     {!! Form::open(['route'=>['user.update', $user], 'method'=>'PUT']) !!}

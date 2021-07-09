@@ -1,10 +1,10 @@
 @extends('admin.layout.main') 
-@section('title', 'Administrar directores') 
+@section('title', 'Nuevo director') 
 @section('content')
 @include('flash::message')
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Nuevo director</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Datos nuevo director</h6>
     </div>
     <div class="card-body">
     {!! Form::open(['route'=>'director.store', 'method'=>'POST']) !!}
