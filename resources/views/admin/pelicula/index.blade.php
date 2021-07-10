@@ -10,7 +10,7 @@
         <h6 class="m-0 font-weight-bold text-primary">Peliculas registradas</h6>
     </div>
     <div class="card-body">
-    
+        
     </div>
 </div>
 @endsection

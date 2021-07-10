@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 use App\User;
 
+use App\Http\Requests\UserSaveRequest;
+
 class UserController extends Controller
 {
     /**
@@ -36,7 +38,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserSaveRequest $request)
     {
         $user=new User($request->all());
         $user->password=bcrypt($user->password);

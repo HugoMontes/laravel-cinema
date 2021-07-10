@@ -7,6 +7,7 @@
         <h6 class="m-0 font-weight-bold text-primary">Datos nuevo usuario</h6>
     </div>
     <div class="card-body">
+    @include('admin.layout.errors')
     {!! Form::open(['route'=>'user.store', 'method'=>'POST']) !!}
         <div class="form-group">
             {!! Form::label('name', 'Nombre') !!}

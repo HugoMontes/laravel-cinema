@@ -61,7 +61,8 @@ class PeliculaController extends Controller
         $imagen=new Imagen();
         $imagen->nombre=$name_file;
         
-        $imagen->pelicula()->associate($pelicula); $imagen->save();
+        $imagen->pelicula()->associate($pelicula); 
+        $imagen->save();
         
         flash('Se ha guardado exitosamente la pelicula '.$pelicula->titulo.'.')->success(); 
         return redirect()->route('pelicula.create');
