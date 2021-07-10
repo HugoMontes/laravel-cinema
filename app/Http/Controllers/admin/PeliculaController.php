@@ -46,8 +46,7 @@ class PeliculaController extends Controller
     {
         $pelicula=new Pelicula($request->all());
 
-        // $pelicula->user_id=\Auth::user()->id;
-        $pelicula->user_id=3;
+        $pelicula->user_id=\Auth::user()->id;
         
         $pelicula->save();
         $pelicula->directores()->sync($request->directores);
