@@ -33,12 +33,13 @@
             {!! Form::textarea('resumen', null, 
                 ['class'=>'form-control']) !!} </div>
         <div class="form-group">
-            {!! Form::label('directores', 'Directores') !!} {!! Form::select('directores[]', $directores, null,
+            {!! Form::label('directores', 'Directores') !!} 
+            {!! Form::select('directores[]', $directores, null,
                 ['class'=>'form-control', 'multiple','required']) !!}
         </div>
         <div class="form-group">
             {!! Form::label('imagen', 'Imagen') !!}
-            {!! Form::file('imagen') !!}
+            {!! Form::file('imagen', ['required']) !!}
         </div>
         <div class="form-group">
             <a href="{{ route('genero.index') }}" class="btn btn-secondary">
