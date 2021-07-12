@@ -11,7 +11,7 @@
                 </div>
                 <div class="modal-body">Seleccione "Cerrar sesión" a continuación si está listo para finalizar su sesión actual.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
                 
                     {{-- logout --}}
                     <form id="logout-form" action="{{ route('logout') }}"
