@@ -4,7 +4,6 @@
 @section('styles')
     {!! Html::style('plugins/chosen/chosen.min.css') !!}
     {!! Html::style('plugins/trumbowyg/ui/trumbowyg.min.css') !!} 
-    {!! Html::script('plugins/trumbowyg/langs/es.min.js') !!}
 @endsection
 
 @section('content')
@@ -46,7 +45,10 @@
         </div>
         <div class="form-group">
             {!! Form::label('imagen', 'Imagen') !!}
-            {!! Form::file('imagen', ['required']) !!}
+            {!! Form::file('imagen', ['class'=>'file-imagen', 'required']) !!}
+            <div style="width: 450px; margin-bottom: 12px;">
+                <img id="image-imagen" src="#" alt="Portada de pelicula" class="img-rounded" width="70%" />
+            </div>
         </div>
         <div class="form-group">
             <a href="{{ route('pelicula.index') }}" class="btn btn-secondary">
@@ -62,16 +64,34 @@
 @section('javascript')
 {!! Html::script('plugins/chosen/chosen.jquery.min.js') !!} 
 {!! Html::script('plugins/trumbowyg/trumbowyg.min.js') !!}
+{!! Html::script('plugins/trumbowyg/langs/es.min.js') !!}
 <script type="text/javascript">
+
     // chosen
     $(".select-director").chosen({
         placeholder_text_multiple: 'Seleccione un maximo de 3 directores',
         max_selected_options: 3,
         no_results_text: 'No se encontraron directores', 
     });
+
     // trumbowyg
     $(".textarea-resumen").trumbowyg({
         lang: 'es'
+    });
+    
+    // view image
+    function readURL(input){
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#image-imagen').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $(".file-imagen").change(function() {
+        readURL(this);
     });
 </script>
 @endsection
