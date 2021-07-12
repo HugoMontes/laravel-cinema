@@ -1,5 +1,10 @@
 @extends('admin.layout.main') 
-@section('title', 'Administrar Peliculas') 
+@section('title', 'Administrar Peliculas')
+
+@section('styles')
+    {!! Html::style('plugins/chosen/chosen.min.css') !!}
+@endsection
+
 @section('content')
 @include('flash::message')
 <div class="card shadow mb-4">
@@ -35,7 +40,7 @@
         <div class="form-group">
             {!! Form::label('directores', 'Directores') !!} 
             {!! Form::select('directores[]', $directores, null,
-                ['class'=>'form-control', 'multiple','required']) !!}
+                ['class'=>'form-control select-director', 'multiple','required']) !!}
         </div>
         <div class="form-group">
             {!! Form::label('imagen', 'Imagen') !!}
@@ -50,4 +55,15 @@
     {!! Form::close() !!}
     </div>
 </div>
+@endsection
+
+@section('javascript')
+{!! Html::script('plugins/chosen/chosen.jquery.min.js') !!} 
+<script type="text/javascript">
+    $(".select-director").chosen({
+        placeholder_text_multiple: 'Seleccione un maximo de 3 directores',
+        max_selected_options: 3,
+        no_results_text: 'No se encontraron directores', 
+    });
+</script>
 @endsection

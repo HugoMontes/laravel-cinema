@@ -17,6 +17,7 @@
 
     <!-- Custom styles for this template-->
     {!! Html::style('admin/css/sb-admin-2.min.css') !!}
+    @yield('styles')
 </head>
 
 <body id="page-top">

@@ -15,8 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 // Rutas Admin 
-Route::group(['prefix'=>'admin'],function(){
+Route::group(['prefix'=>'admin', 'middleware'=>'auth'],function(){
     Route::get('/home','admin\HomeController@index')->name('admin.home');
 
     Route::resource('/user', 'admin\UserController');
@@ -34,6 +38,4 @@ Route::group(['prefix'=>'admin'],function(){
 
 
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
