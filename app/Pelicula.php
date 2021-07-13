@@ -26,4 +26,8 @@ class Pelicula extends Model
     public function directores(){
         return $this->belongsToMany('App\Director', 'pelicula_director')->withTimestamps();
     }
+
+    public function scopeSearch($query, $titulo){
+        return $query->where('titulo', 'LIKE', '%'.$titulo.'%');
+    }
 }

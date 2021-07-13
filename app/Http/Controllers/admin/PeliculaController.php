@@ -17,9 +17,14 @@ class PeliculaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('admin.pelicula.index');
+    public function index(Request $request) {
+        $peliculas=Pelicula::search($request->titulo)->orderBy('id','DESC')->paginate(5);
+        $peliculas->each(function($peliculas){
+            $peliculas->genero;
+            $peliculas->user;
+        });
+        // dd($peliculas);
+        return view('admin.pelicula.index')->with('peliculas',$peliculas);
     }
 
     /**
