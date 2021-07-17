@@ -34,6 +34,8 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'],function(){
 
     Route::resource('pelicula', 'admin\PeliculaController'); 
     Route::get('pelicula/{id}/destroy', 'admin\PeliculaController@destroy')->name('pelicula.destroy');
+
+    Route::get('imagen','admin\ImagenController@index')->name('imagen.index');
 });
 
 

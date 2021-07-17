@@ -126,6 +126,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="{{ route('pelicula.index') }}">Lista de peliculas</a>
                 <a class="collapse-item" href="{{ route('pelicula.create') }}">Registrar pelicula</a>
+                <a class="collapse-item" href="{{ route('imagen.index') }}">Galeria de imagenes</a>
             </div>
         </div>
     </li>
