@@ -18,7 +18,7 @@ class PeliculaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request) {
-        $peliculas=Pelicula::search($request->titulo)->orderBy('id','DESC')->paginate(5);
+        $peliculas=Pelicula::search($request->titulo)->orderBy('id','DESC')->paginate(10);
         $peliculas->each(function($peliculas){
             $peliculas->genero;
             $peliculas->user;
@@ -91,7 +91,15 @@ class PeliculaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pelicula=Pelicula::find($id);
+        $generos=Genero::orderBy('genero','ASC')->pluck('genero','id');
+        $directores=Director::orderBy('nombre','ASC')->pluck('nombre','id');
+        $directoresList=$pelicula->directores->pluck('id')->all();
+        return view('admin.pelicula.edit')
+            ->with('pelicula',$pelicula)
+            ->with('generos',$generos)
+            ->with('directores',$directores)
+            ->with('directoresList',$directoresList);
     }
 
     /**
@@ -103,7 +111,11 @@ class PeliculaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pelicula=Pelicula::find($id);
+        $pelicula->update($request->all());
+        $pelicula->directores()->sync($request->directores);
+        flash('Se ha editado '.$pelicula->titulo.' exitosamente.')->success();
+        return redirect()->route('pelicula.index');
     }
 
     /**
@@ -114,6 +126,9 @@ class PeliculaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pelicula=Pelicula::find($id);
+        $pelicula->delete();
+        flash('Se ha eliminado '.$pelicula->titulo)->success();
+        return redirect()->route('pelicula.index');
     }
 }
