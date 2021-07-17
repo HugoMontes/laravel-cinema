@@ -99,7 +99,7 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        {{ HTML::image('admin/img/undraw_profile_1.svg', '...', array('class' => 'rounded-circle')) }}
+                                        {{ Html::image('admin/img/undraw_profile_1.svg', '...', array('class' => 'rounded-circle')) }}
                                         <div class="status-indicator bg-success"></div>
                                     </div>
                                     <div class="font-weight-bold">
@@ -110,7 +110,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        {{ HTML::image('admin/img/undraw_profile_2.svg', '...', array('class' => 'rounded-circle')) }}
+                                        {{ Html::image('admin/img/undraw_profile_2.svg', '...', array('class' => 'rounded-circle')) }}
                                         <div class="status-indicator"></div>
                                     </div>
                                     <div>
@@ -121,7 +121,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        {{ HTML::image('admin/img/undraw_profile_3.svg', '...', array('class' => 'rounded-circle')) }}
+                                        {{ Html::image('admin/img/undraw_profile_3.svg', '...', array('class' => 'rounded-circle')) }}
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
                                     <div>
@@ -153,7 +153,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>                             
-                                {{ HTML::image('admin/img/undraw_profile.svg', 'User', array('class' => 'img-profile rounded-circle')) }}
+                                {{ Html::image('admin/img/undraw_profile.svg', 'User', array('class' => 'img-profile rounded-circle')) }}
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
